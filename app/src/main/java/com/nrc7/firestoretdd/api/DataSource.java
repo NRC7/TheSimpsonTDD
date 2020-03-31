@@ -32,9 +32,14 @@ public class DataSource {
             @Override
             public void onResponse(Call<Pojo[]> call, Response<Pojo[]> response) {
                 // List<Pojo> lsit = response.body();
+                if (response.body() != null) {
                 List<Pojo> pojoList = Arrays.asList(response.body());
-                // Enviar por el callback la lista hacia el Main
                 callback.notificarLista(pojoList);
+
+                } else {
+
+                }
+                // Enviar por el callback la lista hacia el Main
             }
 
             @Override
